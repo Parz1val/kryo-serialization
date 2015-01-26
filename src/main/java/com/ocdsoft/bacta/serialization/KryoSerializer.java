@@ -6,7 +6,6 @@ import com.esotericsoftware.kryo.io.UnsafeInput;
 import com.esotericsoftware.kryo.io.UnsafeOutput;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.ocdsoft.bacta.engine.object.NetworkObject;
 import com.ocdsoft.bacta.engine.serialization.NetworkSerializer;
 import com.ocdsoft.bacta.engine.utils.BufferUtil;
 import org.slf4j.Logger;
@@ -33,7 +32,6 @@ public abstract class KryoSerializer implements NetworkSerializer {
 
                 kryo.setRegistrationRequired(true);
 
-                kryo.register(NetworkObject.class, injector.getInstance(NetworkObjectSerializer.class));
                 registerTypes(kryo, injector);
 
                 return kryo;
