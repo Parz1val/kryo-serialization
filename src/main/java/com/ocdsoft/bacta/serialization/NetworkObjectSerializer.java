@@ -9,13 +9,15 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.ocdsoft.bacta.engine.object.NetworkObject;
 import com.ocdsoft.bacta.engine.service.object.ObjectService;
-import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by kburkhardt on 8/22/14.
@@ -34,21 +36,21 @@ public class NetworkObjectSerializer<T extends NetworkObject> extends Serializer
         buildSerializationMetadata();
     }
 
-
+    // TODO: Implement this
     private void buildSerializationMetadata() {
-
-        Reflections reflections = new Reflections();
-
-        Set<Class<? extends NetworkObject>> networkObjects = reflections.getSubTypesOf(NetworkObject.class);
-
-        Iterator<Class<? extends NetworkObject>> objectIter = networkObjects.iterator();
-        while (objectIter.hasNext()) {
-
-            Class<? extends NetworkObject> networkObject = objectIter.next();
-            List<Field> fields = loadSerializableClass(networkObject);
-
-            serializableFieldsMap.put(networkObject, fields);
-        }
+//
+//        Reflections reflections = new Reflections();
+//
+//        Set<Class<? extends NetworkObject>> networkObjects = reflections.getSubTypesOf(NetworkObject.class);
+//
+//        Iterator<Class<? extends NetworkObject>> objectIter = networkObjects.iterator();
+//        while (objectIter.hasNext()) {
+//
+//            Class<? extends NetworkObject> networkObject = objectIter.next();
+//            List<Field> fields = loadSerializableClass(networkObject);
+//
+//            serializableFieldsMap.put(networkObject, fields);
+//        }
 
     }
 
