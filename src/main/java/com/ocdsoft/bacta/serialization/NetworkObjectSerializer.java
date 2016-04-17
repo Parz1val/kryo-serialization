@@ -104,7 +104,6 @@ public class NetworkObjectSerializer<T extends NetworkObject> extends Serializer
             List<Field> fields = serializableFieldsMap.get(type);
             for(Field field : fields) {
                 Registration reg = kryo.readClass(input);
-
                 field.set(newObject, kryo.readObject(input, reg.getType()));
             }
 
